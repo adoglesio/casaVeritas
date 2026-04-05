@@ -7,11 +7,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Array de mensagens para alternar.
     const messages = [
-        '📖 Preparando conteúdos...',
-        '✝️ Conectando com a fé...',
+        '🙏 Preparando conteúdos...',
+        '🙏 Conectando com a fé...',
         '🙏 Quase pronto...',
-        '✨ Site em desenvolvimento...',
-        '🎨 Criando experiência única...'
+        '🙏 Site em desenvolvimento...',
+        '🙏 Criando experiência única...'
     ];
     
     let messageIndex = 0;
