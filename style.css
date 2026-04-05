@@ -15,11 +15,11 @@
 /* Corpo da página - agora com flex column para o footer ficar no final */
 body {
     background: #3f102c;
-    min-height: 100vh;
+    min-height: 100dvh; /* melhor para mobile */
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start; /* evita quebrar no mobile */
     font-family: 'Arial', sans-serif;
     position: relative;
     overflow-x: hidden;
@@ -43,15 +43,18 @@ body::before {
     animation: fadeIn 0.8s ease;
     z-index: 10;
     max-width: 90%;
-    flex: 1; /* Faz o conteúdo ocupar o espaço disponível */
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 100%;
+    max-width: 500px;
 }
 
 /* Logo imagem */
 .logo-img {
-    width: 350px;
+    width: 100%;
+    max-width: 350px;
     height: auto;
     margin-bottom: 1.5rem;
     animation: float 3s ease-in-out infinite;
