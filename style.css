@@ -1,0 +1,207 @@
+/* Reset e configurações gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variáveis de cores (para usar no footer) */
+:root {
+    --text-muted: #d4c5b5;
+    --border-light: rgba(240, 208, 229, 0.2);
+    --primary-green: #15a521;
+}
+
+/* Corpo da página - agora com flex column para o footer ficar no final */
+body {
+    background: #3f102c;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Arial', sans-serif;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Fundo com padrão decorativo */
+body::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle at 25% 40%, rgba(143, 166, 103, 0.1) 2px, transparent 2px);
+    background-size: 50px 50px;
+    pointer-events: none;
+}
+
+/* Container principal da splash */
+.splash {
+    text-align: center;
+    padding: 2rem;
+    animation: fadeIn 0.8s ease;
+    z-index: 10;
+    max-width: 90%;
+    flex: 1; /* Faz o conteúdo ocupar o espaço disponível */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Logo imagem */
+.logo-img {
+    width: 350px;
+    height: auto;
+    margin-bottom: 1.5rem;
+    animation: float 3s ease-in-out infinite;
+    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.3));
+    transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.05);
+}
+
+/* Frase */
+.splash p {
+    color: #f0d0e5;
+    margin: 1rem 0;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Loader animado */
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 3px solid #f0d0e5;
+    border-top: 3px solid #15a521;
+    border-radius: 50%;
+    margin: 2rem auto;
+    animation: spin 1s linear infinite;
+}
+
+/* Texto de status */
+.status-text {
+    font-size: 0.8rem;
+    color: #d4c5b5;
+    margin-top: 1rem;
+    letter-spacing: 1px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    color: var(--text-muted);
+    padding: 1.5rem 0;
+    text-align: center;
+    border-top: 1px solid var(--border-light);
+    width: 100%;
+    margin-top: auto; /* Empurra o footer para o final */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+footer p {
+    font-size: 0.85rem;
+    margin-bottom: 0.8rem;
+    color: #d4c5b5;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.social-links a {
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    transition: 0.2s;
+}
+
+.social-links a:hover {
+    color: var(--primary-green);
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 768px) {
+    .logo-img {
+        width: 150px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+        letter-spacing: 3px;
+    }
+
+    .splash p {
+        font-size: 0.9rem;
+    }
+
+    .loader {
+        width: 40px;
+        height: 40px;
+        margin: 1.5rem auto;
+    }
+
+    footer {
+        padding: 1rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-img {
+        width: 120px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+    }
+
+    .splash {
+        padding: 1rem;
+    }
+
+    .social-links {
+        gap: 1rem;
+    }
+}
